@@ -2,7 +2,7 @@
   "description": "一线良辰 · 婚礼请柬",
   "miniprogramRoot": "dist/",
   "projectname": "invitation-miniprogram",
-  "appid": "touristappid",
+  "appid": "wx0e50ee2cbda94102",
   "compileType": "miniprogram",
   "setting": {
     "urlCheck": true,

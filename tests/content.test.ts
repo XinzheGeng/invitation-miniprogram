@@ -19,9 +19,17 @@ test('wedding metadata and chapter order stay frozen', () => {
 test('story, gallery and venue item counts match the Web baseline', () => {
   assert.equal(STORY_STEPS.length, 6);
   assert.equal(STORY_STEPS[1].date, '2017.xx');
+  assert.equal(STORY_STEPS.every(step => Boolean(step.photo) && Boolean(step.photoAlt)), true);
+  assert.match(STORY_STEPS.find(step => step.id === 'nanjing')!.body, /慢慢学会彼此的步调/);
+  assert.match(STORY_STEPS.find(step => step.id === 'growth')!.body, /我望着你一步步走向钟爱的师范方向/);
+  assert.match(STORY_STEPS.find(step => step.id === 'growth')!.body, /你常捧一杯咖啡来实验室，陪我跑实验、写论文/);
+  assert.match(STORY_STEPS.find(step => step.id === 'beijing')!.body, /新的城市找到适合自己的工作/);
+  assert.match(STORY_STEPS.find(step => step.id === 'wedding')!.body, /亲友盈满的祝福/);
   assert.equal(GALLERY_GROUPS.travel.photos.length, 3);
   assert.equal(GALLERY_GROUPS.wedding.photos.length, 3);
   assert.equal(SCHEDULE_ITEMS.length, 4);
+  assert.equal(SCHEDULE_ITEMS[0].time, '10:30');
+  assert.equal(SCHEDULE_ITEMS.every(item => item.title.length === 2 && !('note' in item)), true);
   assert.equal(VENUE_PHOTOS.length, 3);
 });
 

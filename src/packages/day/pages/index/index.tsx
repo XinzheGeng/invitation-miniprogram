@@ -18,10 +18,11 @@ export default function Day() {
       <View className='date-block'><Text className='mono'>{WEDDING.month}</Text><Text className='date-day'>{WEDDING.day}</Text><Text className='mono'>{WEDDING.yearAndWeekday}</Text></View>
       <View className='schedule-list'>{SCHEDULE_ITEMS.map(item => <View className='schedule-item' key={item.time}>
         <Text className='schedule-time mono'>{item.time}</Text><View className='schedule-knot' />
-        <View className='schedule-copy'><Text className='subheading'>{item.title}</Text><Text className='body-copy'>{item.note}</Text></View>
+        <View className='schedule-copy'><Text className='subheading'>{item.title}</Text></View>
       </View>)}</View>
+      <Text className='day-invitation'>诚挚邀请您的出席</Text>
       <View className='place-card'><View className='place-heading'><View className='place-heading-copy'>
-        <Text className='eyebrow'>PLACE / 场地</Text><Text className='venue-name'>{WEDDING.venue}</Text><Text className='body-copy'>⌖ 建议提前 20 分钟到达</Text>
+        <Text className='eyebrow'>PLACE / 场地</Text><Text className='venue-name'>{WEDDING.venue}</Text><Text className='body-copy'>⌖ 建议在11:30前入场</Text>
       </View><View className='venue-count'><Text>{String(count).padStart(2, '0')}</Text><Text className='mono'>VIEWS</Text></View></View>
         {count > 0 && <Action className='venue-preview' label={`查看婚礼场地照片，共${count}张`} onClick={() => { setIndex(0); setOpen(true); }}>
           <View className='venue-thumbnails'>{VENUE_PHOTOS.map(item => <Photo key={item.src} {...item} />)}</View>

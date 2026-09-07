@@ -51,11 +51,18 @@ page { background: $paper; color: $ink; font-family: 'Songti SC', 'Noto Serif CJ
 .detail-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid $hairline; margin-top: 34px; padding-top: 12px; font-size: 8px; color: $muted; .action { font-size: 10px; } }
 .story-list { position: relative; padding-left: 42px; }
 .story-line { position: absolute; top: 7px; bottom: 22px; left: 15px; width: 1px; background: $thread; }
-.story-item { position: relative; display: flex; flex-wrap: wrap; margin-bottom: 28px; }
+.story-item { position: relative; margin-bottom: 28px; }
 .story-knot { position: absolute; left: -32px; top: 5px; width: 9px; height: 9px; border: 1px solid $thread; border-radius: 50%; background: $paper; }
-.story-date { width: 65px; margin-right: 7px; padding-top: 5px; font-size: 10px; color: $thread; }
+.story-date { display: block; margin-bottom: 8px; padding-top: 1px; font-size: 10px; color: $thread; }
+.story-content { display: flex; align-items: flex-start; gap: 12px; }
+.story-thumbnail { flex: 0 0 76px; width: 76px; height: 76px; box-sizing: border-box; padding: 4px; border: 1px solid $hairline; background: rgba(255,251,243,.72); box-shadow: 2px 3px 8px rgba(70,43,27,.12); }
+.story-thumbnail .photo { width: 100%; height: 100%; }
 .story-copy { flex: 1; min-width: 0; }
-.story-photo { width: 100%; height: 155px; margin-top: 17px; border: 5px solid rgba(255,251,243,.7); box-sizing: border-box; }
+.story-dialog { position: relative; display: flex; flex-direction: column; width: 90%; max-height: 76vh; background: $paper; border: 1px solid $thread; box-shadow: 0 18px 60px rgba(0,0,0,.25); }
+.story-dialog-header { display: flex; flex-shrink: 0; align-items: center; justify-content: space-between; padding: 10px 16px; border-bottom: 1px solid $hairline; .eyebrow { font-size: 7px; margin-bottom: 5px; } }
+.story-dialog-scroll { flex: 1; min-height: 0; height: 55vh; }
+.story-dialog-body { padding: 16px; }
+.story-dialog-photo { width: 100%; height: 38vh; }
 .gallery-tabs { display: flex; border-bottom: 1px solid $hairline; margin-bottom: 20px; }
 .tab { flex: 1; color: $muted; font-size: 17px; border-bottom: 2px solid transparent; }
 .tab.active { color: $thread; border-bottom-color: $thread; }
@@ -68,11 +75,12 @@ page { background: $paper; color: $ink; font-family: 'Songti SC', 'Noto Serif CJ
 .quote-mark { color: $thread; font-size: 43px; line-height: 1; margin: 0 8px; }
 .date-block { display: flex; flex-direction: column; align-items: center; padding: 12px 0 28px; color: $thread; .mono { font-size: 11px; } }
 .date-day { font-family: Georgia,serif; font-size: 100px; line-height: 1.15; }
-.schedule-list { margin-bottom: 30px; }
-.schedule-item { display: flex; align-items: flex-start; position: relative; padding-bottom: 25px; }
+.schedule-list { margin-bottom: 12px; }
+.schedule-item { display: flex; align-items: flex-start; position: relative; padding-bottom: 18px; }
 .schedule-time { width: 64px; padding-top: 5px; color: $thread; font-size: 14px; }
 .schedule-knot { flex: 0 0 7px; height: 7px; margin: 10px 18px 0 0; border-radius: 50%; background: $thread; }
 .schedule-copy { flex: 1; min-width: 0; }
+.day-invitation { display: block; margin: 8px 0 24px; color: $thread; font-size: 16px; letter-spacing: .16em; text-align: center; }
 .place-card { border: 1px solid $hairline; padding: 18px; background: rgba(255,251,243,.45); }
 .place-heading { display: flex; justify-content: space-between; margin-bottom: 18px; }
 .place-heading-copy { flex: 1; min-width: 0; }

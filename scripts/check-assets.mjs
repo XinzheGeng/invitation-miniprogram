@@ -25,6 +25,7 @@ const sources = (await Promise.all([
   readFile(path.join(root, 'src/pages/cover/index.tsx'), 'utf8'),
   readFile(path.join(root, 'src/pages/home/index.tsx'), 'utf8'),
   readFile(path.join(root, 'src/packages/story/pages/index/index.tsx'), 'utf8'),
+  readFile(path.join(root, 'src/packages/story/data.ts'), 'utf8'),
   readFile(path.join(root, 'src/packages/gallery/data.ts'), 'utf8'),
   readFile(path.join(root, 'src/packages/day/data.ts'), 'utf8'),
   readFile(path.join(root, 'src/packages/weekend/pages/index/index.tsx'), 'utf8'),

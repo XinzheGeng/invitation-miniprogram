@@ -4,6 +4,7 @@ import { ENTRIES } from '../../data/entries';
 import { WEDDING } from '../../data/wedding';
 import { useInvitationShare } from '../../hooks/use-invitation-share';
 import { backToCover, openChapter } from '../../services/navigation';
+import './index.scss';
 
 export default function Home() {
   useInvitationShare();

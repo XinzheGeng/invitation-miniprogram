@@ -4,7 +4,7 @@ import { Action, Chapter, Photo } from '../../../../components';
 import { WEDDING } from '../../../../data/wedding';
 import { useInvitationShare } from '../../../../hooks/use-invitation-share';
 import { wrapIndex } from '../../../../services/core';
-import { SCHEDULE_ITEMS, VENUE_PHOTOS } from '../../data';
+import { SCHEDULE_ITEMS, VENUE_ADDRESS, VENUE_PHOTOS } from '../../data';
 
 export default function Day() {
   useInvitationShare();
@@ -15,14 +15,14 @@ export default function Day() {
   const shift = (offset: number) => setIndex(current => wrapIndex(current + offset, count));
   return <>
     <Chapter id='day' locked={open}>
-      <View className='date-block'><Text className='mono'>{WEDDING.month}</Text><Text className='date-day'>{WEDDING.day}</Text><Text className='mono'>{WEDDING.yearAndWeekday}</Text></View>
+      <View className='date-block'><Text className='date-primary'>{WEDDING.date.slice(5)}</Text><Text className='mono'>{WEDDING.yearAndWeekday}</Text></View>
       <View className='schedule-list'>{SCHEDULE_ITEMS.map(item => <View className='schedule-item' key={item.time}>
         <Text className='schedule-time mono'>{item.time}</Text><View className='schedule-knot' />
         <View className='schedule-copy'><Text className='subheading'>{item.title}</Text></View>
       </View>)}</View>
       <Text className='day-invitation'>诚挚邀请您的出席</Text>
       <View className='place-card'><View className='place-heading'><View className='place-heading-copy'>
-        <Text className='eyebrow'>PLACE / 场地</Text><Text className='venue-name'>{WEDDING.venue}</Text><Text className='body-copy'>⌖ 建议在11:30前入场</Text>
+        <Text className='eyebrow'>PLACE / 场地</Text><Text className='venue-name'>{WEDDING.venue}</Text><Text className='body-copy'>{VENUE_ADDRESS}</Text>
       </View><View className='venue-count'><Text>{String(count).padStart(2, '0')}</Text><Text className='mono'>VIEWS</Text></View></View>
         {count > 0 && <Action className='venue-preview' label={`查看婚礼场地照片，共${count}张`} onClick={() => { setIndex(0); setOpen(true); }}>
           <View className='venue-thumbnails'>{VENUE_PHOTOS.map(item => <Photo key={item.src} {...item} />)}</View>
@@ -40,7 +40,6 @@ export default function Day() {
             <Photo className='venue-slide' {...photo} mode='aspectFit' />
             <View className='venue-slide-caption'><Text className='mono'>{String(index + 1).padStart(2, '0')} / {String(count).padStart(2, '0')}</Text>
               <View><Text className='subheading'>{photo.title}</Text><Text className='body-copy'>{photo.note}</Text></View></View>
-            <Text className='venue-footnote muted'>{WEDDING.venue} / 婚礼当天请循红线入场</Text>
           </View>
         </ScrollView>
         <View className='venue-controls'><Action disabled={count < 2} onClick={() => shift(-1)}>← 上一景</Action>

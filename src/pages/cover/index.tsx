@@ -3,6 +3,7 @@ import { Action, PaperLayout, Photo } from '../../components';
 import { WEDDING } from '../../data/wedding';
 import { useInvitationShare } from '../../hooks/use-invitation-share';
 import { openInvitation } from '../../services/navigation';
+import './index.scss';
 
 export default function Cover() {
   useInvitationShare();

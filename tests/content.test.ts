@@ -2,17 +2,18 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { ENTRIES } from '../src/data/entries';
 import { WEDDING } from '../src/data/wedding';
-import { SCHEDULE_ITEMS, VENUE_PHOTOS } from '../src/packages/day/data';
+import { SCHEDULE_ITEMS, VENUE_ADDRESS, VENUE_PHOTOS } from '../src/packages/day/data';
 import { GALLERY_GROUPS } from '../src/packages/gallery/data';
 import { STORY_STEPS } from '../src/packages/story/data';
 import { WEEKEND_SECTIONS } from '../src/packages/weekend/data';
 
 test('wedding metadata and chapter order stay frozen', () => {
   assert.deepEqual(WEDDING, {
-    couple: '耿信哲 & 何爽', date: '2026.10.03', month: 'OCT', day: '03',
+    couple: '耿信哲 & 何爽', date: '2026.10.03',
     yearAndWeekday: '2026 · SATURDAY', venue: '铂爵宫皇家婚礼会馆',
     title: '耿信哲 & 何爽 婚礼请柬',
   });
+  assert.equal(VENUE_ADDRESS, '河北省石家庄市裕华区富强大街19号');
   assert.deepEqual(ENTRIES.map(item => item.title), ['来路偕行', '菲林拾光', '良辰入席', '赴约之外']);
 });
 
@@ -33,7 +34,10 @@ test('story, gallery and venue item counts match the Web baseline', () => {
   assert.equal(VENUE_PHOTOS.length, 3);
 });
 
-test('weekend keeps the three empty source groups without invented places', () => {
+test('weekend keeps the three requested groups and places', () => {
   assert.deepEqual(WEEKEND_SECTIONS.map(section => section.label), ['一瞥', '拾趣', '寻味']);
-  assert.equal(WEEKEND_SECTIONS.every(section => section.places.length === 0), true);
+  assert.deepEqual(WEEKEND_SECTIONS.map(section => section.places.length), [2, 2, 2]);
+  assert.deepEqual(WEEKEND_SECTIONS.flatMap(section => section.places.map(place => place.name)), [
+    '隆兴寺', '西柏坡', '万象城', '红糖LIVEHOUSE', '真定郝家排骨', '苏顺成绿豆饼',
+  ]);
 });

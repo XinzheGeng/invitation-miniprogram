@@ -1,4 +1,5 @@
 import type { PhotoItem } from '../../data/types';
+export const VENUE_ADDRESS = '河北省石家庄市裕华区富强大街19号';
 export const SCHEDULE_ITEMS = [
   { time: '10:30', title: '相迎' },
   { time: '11:30', title: '入席' },

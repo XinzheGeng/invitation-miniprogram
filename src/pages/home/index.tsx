@@ -11,7 +11,7 @@ export default function Home() {
   return <PaperLayout className='hub-screen'>
     <View className='hub-header'><View><Text className='eyebrow'>HOME / 01</Text><Text className='hub-couple'>{WEDDING.couple}</Text></View>
       <Action onClick={backToCover}>← 回到封面</Action></View>
-    <View className='hub-hero'><Photo src='/assets/hub-main.jpg' alt='导航页照片待补充' />
+    <View className='hub-hero'><Photo src='/assets/hub-main.jpg' alt='婚礼主视觉照片' />
       <View className='hero-caption'><Text className='mono'>WE ARE GETTING MARRIED</Text><Text>{WEDDING.date}</Text></View></View>
     <View className='invitation-note'><Text className='invitation-label'>诚挚邀请你</Text><Text>来见证我们的重要一天，也来翻阅这份关于“我们”的小小档案。</Text></View>
     <View className='thread-nav'>

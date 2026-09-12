@@ -22,7 +22,7 @@ page { background: $paper; color: $ink; font-family: 'Songti SC', 'Noto Serif CJ
 .cover-lead { display: block; margin-top: 17px; font-size: 14px; letter-spacing: .04em; }
 .cover-photo { position: relative; z-index: 2; margin-top: 18px; .photo { box-sizing: border-box; height: 218px; border: 8px solid rgba(255,251,243,.72); box-shadow: 0 5px 16px rgba(55,37,25,.13); } }
 .cover-thread { position: absolute; z-index: 1; top: 395px; left: 9%; width: 82%; height: 290px; pointer-events: none; }
-.cover-info { position: relative; z-index: 2; display: flex; margin-top: 45px; padding: 18px 0; border-top: 1px solid $hairline; border-bottom: 1px solid $hairline; font-size: 13px; line-height: 1.6; }
+.cover-info { position: relative; z-index: 2; background: rgba($paper, .92); display: flex; margin-top: 45px; padding: 18px 0; border-top: 1px solid $hairline; border-bottom: 1px solid $hairline; font-size: 13px; line-height: 1.6; }
 .cover-info-date { width: 40%; }
 .cover-info-place { width: 60%; padding-left: 12px; box-sizing: border-box; border-left: 1px solid $hairline; }
 .seal-button { position: relative; z-index: 3; justify-content: space-between; width: 100%; height: 52px; margin-top: 26px; padding: 0 20px; background: $thread; color: #fff8ee; font-size: 15px; letter-spacing: .16em; box-shadow: 4px 4px 0 rgba(86,45,32,.12); }
@@ -36,7 +36,7 @@ page { background: $paper; color: $ink; font-family: 'Songti SC', 'Noto Serif CJ
 .thread-nav { position: relative; padding: 24px 0 20px; }
 .hub-thread { position: absolute; z-index: 0; left: 8%; top: 0; width: 84%; height: 100%; pointer-events: none; }
 .entry-grid { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; padding-bottom: 26px; }
-.entry-card { display: block; position: relative; width: 48%; padding: 11px 10px 28px; margin-bottom: 14px; border: 1px solid $hairline; background: rgba(255,251,243,.92); box-shadow: 0 4px 10px rgba(50,36,25,.06); color: $ink; }
+.entry-card { display: block; position: relative; width: 48%; padding: 11px 10px 28px; margin-bottom: 14px; border: 1px solid $hairline; background: rgba($paper, .92); box-shadow: 0 4px 10px rgba(50,36,25,.06); color: $ink; }
 .entry-gallery,.entry-weekend { transform: translateY(26px); }
 .entry-number { display: block; margin-bottom: 9px; color: $thread; font-size: 9px; }
 .entry-image { height: 94px; }
@@ -63,7 +63,6 @@ page { background: $paper; color: $ink; font-family: 'Songti SC', 'Noto Serif CJ
 .story-dialog-scroll { flex: 1; min-height: 0; height: 55vh; }
 .story-dialog-body { padding: 16px; }
 .story-dialog-photo { width: 100%; height: 38vh; }
-.gallery-tabs { display: flex; border-bottom: 1px solid $hairline; margin-bottom: 20px; }
 .tab { flex: 1; color: $muted; font-size: 17px; border-bottom: 2px solid transparent; }
 .tab.active { color: $thread; border-bottom-color: $thread; }
 .gallery-main { padding: 7px; background: rgba(255,251,243,.72); box-shadow: 0 4px 14px rgba(50,36,25,.12); }

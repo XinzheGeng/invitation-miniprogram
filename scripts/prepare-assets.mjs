@@ -7,15 +7,7 @@ const source = name => path.join(root, 'release-assets/source-placeholders', `${
 const output = name => path.join(root, name);
 const jobs = [
   ['cover-main', 'src/assets/cover-main.jpg', 900, 78],
-  ['hub-main', 'src/assets/hub-main.jpg', 900, 78],
-  ['nav-story', 'src/assets/nav-story.jpg', 480, 76],
-  ['nav-gallery', 'src/assets/nav-gallery.jpg', 480, 76],
-  ['nav-day', 'src/assets/nav-day.jpg', 480, 76],
-  ['nav-weekend', 'src/assets/nav-weekend.jpg', 480, 76],
   ['story-trip', 'src/packages/story/assets/story-trip.jpg', 900, 78],
-  ...['travel', 'wedding'].flatMap(group => [1, 2, 3].map(n => [`gallery-${group}-0${n}`, `src/packages/gallery/assets/gallery-${group}-0${n}.jpg`, 900, 78])),
-  ...[1, 2, 3].map(n => [`venue-0${n}`, `src/packages/day/assets/venue-0${n}.jpg`, 900, 78]),
-  ['weekend-hero', 'src/packages/weekend/assets/weekend-hero.jpg', 900, 78],
 ];
 
 for (const [name, target, width, quality] of jobs) {

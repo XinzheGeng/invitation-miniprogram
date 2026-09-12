@@ -1,30 +1,23 @@
 import { Swiper, SwiperItem, Text, View } from '@tarojs/components';
 import { useReducer } from 'react';
 import { Action, Chapter, Photo } from '../../../../components';
-import type { GalleryCategory } from '../../../../data/types';
 import { useInvitationShare } from '../../../../hooks/use-invitation-share';
 import { galleryReducer, INITIAL_GALLERY } from '../../../../services/core';
-import { GALLERY_GROUPS } from '../../data';
+import { GALLERY_PHOTOS } from '../../data';
 
-const CATEGORIES: readonly GalleryCategory[] = ['travel', 'wedding'];
 export default function Gallery() {
   useInvitationShare();
   const [state, dispatch] = useReducer(galleryReducer, INITIAL_GALLERY);
-  const group = GALLERY_GROUPS[state.category];
-  const count = group.photos.length;
+  const count = GALLERY_PHOTOS.length;
   return <Chapter id='gallery'>
-    <View className='gallery-tabs'>{CATEGORIES.map(category => <Action key={category}
-      className={state.category === category ? 'tab active' : 'tab'}
-      label={`${GALLERY_GROUPS[category].label}${state.category === category ? '，已选中' : ''}`}
-      onClick={() => dispatch({ type: 'select', category })}>{GALLERY_GROUPS[category].label}</Action>)}</View>
     <View className='gallery-main'><View className='gallery-photo-frame'>
-      {count ? <Swiper key={`${state.category}-${state.revision}`} className='gallery-swiper' current={state.index}
+      {count ? <Swiper key={state.revision} className='gallery-swiper' current={state.index}
         circular={count > 1} duration={250} onChange={event => {
-          // Ignore programmatic acknowledgements; old category gestures are rejected by revision.
+          // Ignore programmatic acknowledgements; stale gestures are rejected by revision.
           if (event.detail.source === 'touch') dispatch({ type: 'swipe', index: event.detail.current, count, revision: state.revision });
         }}>
-        {group.photos.map(photo => <SwiperItem key={photo.src}><Photo className='gallery-photo' {...photo} /></SwiperItem>)}
-      </Swiper> : <View className='gallery-photo photo-fallback'>照片待补充</View>}
+        {GALLERY_PHOTOS.map(photo => <SwiperItem key={photo.src}><Photo className='gallery-photo' {...photo} /></SwiperItem>)}
+      </Swiper> : <View className='gallery-photo photo-fallback'>暂无照片</View>}
       {count > 1 && <View className='gallery-controls'>
         <Action label='查看上一张照片' onClick={() => dispatch({ type: 'shift', offset: -1, count })}>←</Action>
         <Action label='查看下一张照片' onClick={() => dispatch({ type: 'shift', offset: 1, count })}>→</Action>

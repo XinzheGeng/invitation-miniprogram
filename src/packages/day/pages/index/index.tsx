@@ -36,7 +36,7 @@ export default function Day() {
         <View className='venue-dialog-header'><View><Text className='eyebrow'>THE WEDDING PLACE · 2026</Text><Text className='subheading'>场地影像</Text></View>
           <Action className='modal-close' label='关闭场地影像' onClick={() => setOpen(false)}>×</Action></View>
         <ScrollView scrollY className='venue-dialog-scroll' enhanced>
-          <View className='venue-dialog-body'><Text className='body-copy'>场地影像将在确认后更新。</Text>
+          <View className='venue-dialog-body'><Text className='body-copy'>婚礼场地实景影像，欢迎莅临。</Text>
             <Photo className='venue-slide' {...photo} mode='aspectFit' />
             <View className='venue-slide-caption'><Text className='mono'>{String(index + 1).padStart(2, '0')} / {String(count).padStart(2, '0')}</Text>
               <View><Text className='subheading'>{photo.title}</Text><Text className='body-copy'>{photo.note}</Text></View></View>

@@ -53,15 +53,13 @@ export async function navigatePlace(place: WeekendPlace, port: LocationPort, ena
   catch { port.notify('复制失败，请重试'); return 'failed'; }
 }
 
-export type GalleryState = { category: 'travel' | 'wedding'; index: number; revision: number };
+export type GalleryState = { index: number; revision: number };
 export type GalleryAction =
-  | { type: 'select'; category: GalleryState['category'] }
   | { type: 'shift'; offset: number; count: number }
   | { type: 'swipe'; index: number; count: number; revision: number };
-export const INITIAL_GALLERY: GalleryState = { category: 'travel', index: 0, revision: 0 };
+export const INITIAL_GALLERY: GalleryState = { index: 0, revision: 0 };
 
 export function galleryReducer(state: GalleryState, action: GalleryAction): GalleryState {
-  if (action.type === 'select') return { category: action.category, index: 0, revision: state.revision + 1 };
   if (action.type === 'swipe' && state.revision !== action.revision) return state;
   const next = action.type === 'shift' ? state.index + action.offset : action.index;
   return { ...state, index: wrapIndex(next, action.count) };

@@ -7,7 +7,7 @@ const expected = [
   'src/assets/nav-gallery.jpg', 'src/assets/nav-day.jpg', 'src/assets/nav-weekend.jpg',
   'src/assets/cover-thread.png', 'src/assets/hub-thread.png', 'src/assets/share.jpg',
   'src/packages/story/assets/story-trip.jpg',
-  ...['travel', 'wedding'].flatMap(group => [1, 2, 3].map(n => `src/packages/gallery/assets/gallery-${group}-0${n}.jpg`)),
+  ...[1, 2, 3, 4, 5, 6, 7, 8, 9].map(n => `src/packages/gallery/assets/gallery-photo-0${n}.jpg`),
   ...[1, 2, 3].map(n => `src/packages/day/assets/venue-0${n}.jpg`),
   'src/packages/weekend/assets/weekend-hero.jpg',
 ];
@@ -33,8 +33,7 @@ const sources = (await Promise.all([
 const requiredReferences = [
   '/assets/cover-main.jpg', '/assets/hub-main.jpg', '/assets/nav-story.jpg', '/assets/nav-gallery.jpg',
   '/assets/nav-day.jpg', '/assets/nav-weekend.jpg', '/packages/story/assets/story-trip.jpg',
-  '/packages/gallery/assets/gallery-travel-0${number}.jpg',
-  '/packages/gallery/assets/gallery-wedding-0${number}.jpg',
+  '/packages/gallery/assets/gallery-photo-0${number}.jpg',
   '/packages/day/assets/venue-0${number}.jpg',
   '/packages/weekend/assets/weekend-hero.jpg',
 ];

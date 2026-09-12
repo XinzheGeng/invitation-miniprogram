@@ -3,7 +3,7 @@ import test from 'node:test';
 import { ENTRIES } from '../src/data/entries';
 import { WEDDING } from '../src/data/wedding';
 import { SCHEDULE_ITEMS, VENUE_ADDRESS, VENUE_PHOTOS } from '../src/packages/day/data';
-import { GALLERY_GROUPS } from '../src/packages/gallery/data';
+import { GALLERY_PHOTOS } from '../src/packages/gallery/data';
 import { STORY_STEPS } from '../src/packages/story/data';
 import { WEEKEND_SECTIONS } from '../src/packages/weekend/data';
 
@@ -26,8 +26,7 @@ test('story, gallery and venue item counts match the Web baseline', () => {
   assert.match(STORY_STEPS.find(step => step.id === 'growth')!.body, /你常捧一杯咖啡来实验室，陪我跑实验、写论文/);
   assert.match(STORY_STEPS.find(step => step.id === 'beijing')!.body, /新的城市找到适合自己的工作/);
   assert.match(STORY_STEPS.find(step => step.id === 'wedding')!.body, /亲友盈满的祝福/);
-  assert.equal(GALLERY_GROUPS.travel.photos.length, 3);
-  assert.equal(GALLERY_GROUPS.wedding.photos.length, 3);
+  assert.equal(GALLERY_PHOTOS.length, 9);
   assert.equal(SCHEDULE_ITEMS.length, 4);
   assert.equal(SCHEDULE_ITEMS[0].time, '10:30');
   assert.equal(SCHEDULE_ITEMS.every(item => item.title.length === 2 && !('note' in item)), true);

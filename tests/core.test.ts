@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { createNavigationGuard, galleryReducer, homeAction, INITIAL_GALLERY, navigatePlace, validCoordinates, wrapIndex } from '../src/services/core';
+import { createNavigationGuard, galleryReducer, homeAction, navigatePlace, validCoordinates, wrapIndex } from '../src/services/core';
 
 test('wrapIndex cycles safely and handles empty lists', () => {
   assert.equal(wrapIndex(-1, 3), 2);
@@ -8,11 +8,11 @@ test('wrapIndex cycles safely and handles empty lists', () => {
   assert.equal(wrapIndex(8, 0), 0);
 });
 
-test('gallery changes category at zero and rejects stale swipe', () => {
-  const changed = galleryReducer({ ...INITIAL_GALLERY, index: 2 }, { type: 'select', category: 'wedding' });
-  assert.deepEqual(changed, { category: 'wedding', index: 0, revision: 1 });
-  assert.deepEqual(galleryReducer(changed, { type: 'swipe', index: 2, count: 3, revision: 0 }), changed);
-  assert.equal(galleryReducer(changed, { type: 'shift', offset: -1, count: 3 }).index, 2);
+test('gallery rejects stale swipe and wraps around', () => {
+  const state = { index: 2, revision: 1 };
+  assert.deepEqual(galleryReducer(state, { type: 'swipe', index: 2, count: 3, revision: 0 }), state);
+  assert.equal(galleryReducer(state, { type: 'shift', offset: -1, count: 3 }).index, 1);
+  assert.equal(galleryReducer(state, { type: 'shift', offset: 1, count: 3 }).index, 0);
 });
 
 test('route fallback returns to existing home or relaunches', () => {

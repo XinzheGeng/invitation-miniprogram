@@ -14,7 +14,7 @@ export default function Cover() {
       <Text className='cover-title'>一根红线，{'\n'}装订两个人生</Text>
       <Text className='cover-lead muted'>从各自的小时候，走到共同的以后。</Text>
     </View>
-    <View className='cover-photo'><Photo src='/assets/cover-main.jpg' alt='封面照片待补充' />
+    <View className='cover-photo'><Photo src='/assets/cover-main.jpg' alt='封面照片' />
       <Text className='caption mono'>THE BEGINNING</Text></View>
     <Image className='cover-thread' src='/assets/cover-thread.png' mode='scaleToFill' />
     <View className='cover-info'>
@@ -27,3 +27,4 @@ export default function Cover() {
     <Text className='cover-footnote muted'>红线将带你进入请柬，并陪你走过每一页</Text>
   </PaperLayout>;
 }
+

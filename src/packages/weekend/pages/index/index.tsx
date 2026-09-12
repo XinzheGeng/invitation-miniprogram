@@ -6,7 +6,7 @@ import { WEEKEND_SECTIONS } from '../../data';
 export default function Weekend() {
   useInvitationShare();
   return <Chapter id='weekend'>
-    <View className='weekend-hero'><Photo src='/packages/weekend/assets/weekend-hero.jpg' alt='石家庄周边推荐照片待补充' />
+    <View className='weekend-hero'><Photo src='/packages/weekend/assets/weekend-hero.jpg' alt='石家庄周边出行照片' />
       <Text className='caption mono'>WEEKEND NOTES</Text></View>
     {WEEKEND_SECTIONS.map((section, index) => <View className='weekend-section' key={section.id}>
       <View className='weekend-heading'><Text className='section-number mono'>{String(index + 1).padStart(2, '0')}</Text><Text className='subheading'>{section.label}</Text></View>

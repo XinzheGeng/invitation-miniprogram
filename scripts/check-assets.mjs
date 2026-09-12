@@ -3,8 +3,8 @@ import path from 'node:path';
 
 const root = process.cwd();
 const expected = [
-  'src/assets/cover-main.jpg', 'src/assets/hub-main.jpg', 'src/assets/nav-story.jpg',
-  'src/assets/nav-gallery.jpg', 'src/assets/nav-day.jpg', 'src/assets/nav-weekend.jpg',
+  'src/assets/cover-main.jpg', 'src/assets/hub-main.jpg', 'src/assets/nav-story-20260912.jpg',
+  'src/assets/nav-gallery-20260912.jpg', 'src/assets/nav-day-20260912.jpg', 'src/assets/nav-weekend-20260912.jpg',
   'src/assets/cover-thread.png', 'src/assets/hub-thread.png', 'src/assets/share.jpg',
   'src/packages/story/assets/story-01-together.jpg',
   'src/packages/story/assets/story-02-travel.jpg',
@@ -36,8 +36,8 @@ const sources = (await Promise.all([
   readFile(path.join(root, 'src/packages/weekend/pages/index/index.tsx'), 'utf8'),
 ])).join('\n');
 const requiredReferences = [
-  '/assets/cover-main.jpg', '/assets/hub-main.jpg', '/assets/nav-story.jpg', '/assets/nav-gallery.jpg',
-  '/assets/nav-day.jpg', '/assets/nav-weekend.jpg', '/packages/story/assets/story-01-together.jpg', '/packages/story/assets/story-02-travel.jpg',
+  '/assets/cover-main.jpg', '/assets/hub-main.jpg', '/assets/nav-story-20260912.jpg', '/assets/nav-gallery-20260912.jpg',
+  '/assets/nav-day-20260912.jpg', '/assets/nav-weekend-20260912.jpg', '/packages/story/assets/story-01-together.jpg', '/packages/story/assets/story-02-travel.jpg',
   '/packages/story/assets/story-03-partnership.jpg', '/packages/story/assets/story-04-growth.jpg',
   '/packages/story/assets/story-05-move.jpg', '/packages/story/assets/story-06-wedding.jpg',
   '/packages/gallery/assets/gallery-photo-0${number}.jpg',

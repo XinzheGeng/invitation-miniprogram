@@ -7,7 +7,6 @@ const source = name => path.join(root, 'release-assets/source-placeholders', `${
 const output = name => path.join(root, name);
 const jobs = [
   ['cover-main', 'src/assets/cover-main.jpg', 900, 78],
-  ['story-trip', 'src/packages/story/assets/story-trip.jpg', 900, 78],
 ];
 
 for (const [name, target, width, quality] of jobs) {
